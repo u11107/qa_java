@@ -1,0 +1,36 @@
+package com.example;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.Assert.*;
+@RunWith(MockitoJUnitRunner.class)
+public class AnimalTest {
+
+    @Spy
+    Animal animal;
+
+    @Test
+    public void getFood() throws Exception {
+        List<String> expectedPredator = List.of("Животные", "Птицы", "Рыба");
+        Mockito.when(animal.getFood("Хищник")).thenReturn(expectedPredator);
+        List<String> expectedHerbivore = List.of("Трава", "Различные растения");
+        Mockito.when(animal.getFood("Травоядное")).thenReturn(expectedHerbivore);
+        assertEquals(expectedPredator.size(), animal.getFood("Хищник").size());
+        assertEquals(expectedHerbivore.size(), animal.getFood("Травоядное").size());
+
+    }
+
+    @Test
+    public void getFamily() {
+        String actual = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
+        assertEquals("Метод возратил не верную строку", animal.getFamily(), actual);
+    }
+}
