@@ -20,9 +20,7 @@ public class AnimalTest {
     @Test
     public void getFood() throws Exception {
         List<String> expectedPredator = List.of("Животные", "Птицы", "Рыба");
-        Mockito.when(animal.getFood("Хищник")).thenReturn(expectedPredator);
         List<String> expectedHerbivore = List.of("Трава", "Различные растения");
-        Mockito.when(animal.getFood("Травоядное")).thenReturn(expectedHerbivore);
         assertEquals(expectedPredator.size(), animal.getFood("Хищник").size());
         assertEquals(expectedHerbivore.size(), animal.getFood("Травоядное").size());
 
