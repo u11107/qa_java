@@ -21,14 +21,13 @@ public class AnimalTest {
     public void getFood() throws Exception {
         List<String> expectedPredator = List.of("Животные", "Птицы", "Рыба");
         List<String> expectedHerbivore = List.of("Трава", "Различные растения");
-        assertEquals(expectedPredator.size(), animal.getFood("Хищник").size());
-        assertEquals(expectedHerbivore.size(), animal.getFood("Травоядное").size());
-
+        assertEquals(expectedPredator, animal.getFood("Хищник"));
+        assertEquals(expectedHerbivore, animal.getFood("Травоядное"));
     }
 
     @Test
     public void getFamily() {
-        String actual = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
-        assertEquals("Метод возратил не верную строку", animal.getFamily(), actual);
+        String expected = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
+        assertEquals("Метод возратил не верную строку", expected, animal.getFamily());
     }
 }

@@ -10,10 +10,8 @@ public class CreateLionExceptionTest {
     //Метод ожидает исключения
     @Test
     public void createLionManException() {
-        Assert.assertThrows("Используйте допустимые значения пола животного - самей или самка",
-                Exception.class, () -> {
-                    throw new Exception("Используйте допустимые значения пола животного - самей или самка");
-                }
-        );
+        Assert.assertThrows(Exception.class, () -> {
+            new Lion("ldnjfgojdogjer", feline);
+        });
     }
 }
